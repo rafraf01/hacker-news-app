@@ -1,0 +1,20 @@
+<div class="story-container">
+    <ng-container *ngIf="isLoading; else story">
+        <div class="loader">
+            <img src="../../assets/images/rocket.gif" alt="rocket"/>
+            <pre>Loading. Please wait...</pre>
+        </div>
+    </ng-container>
+    
+    <ng-template #story>
+        <main class="news-flex-container">
+            <div *ngFor="let story of stories; index as i">
+                <app-cards [story]="story" [index]="i"></app-cards>
+            </div>
+        </main>
+    </ng-template>
+
+    <div *ngIf="offsetFlag" class="hidden-div" (click)="backToTop()">
+        <img src="../../assets/images/up-arrow.svg" alt="arrow-up" />
+    </div>
+</div>

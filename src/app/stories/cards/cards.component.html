@@ -1,0 +1,20 @@
+<article class='news-flex-item' >
+    <div class='news-img card-{{index}}'>
+        <img src="../../../assets/images/cover.jpg" alt='news icon'/>
+    </div>
+    <div class='news-content'>
+        <div class='news-content-header'>
+            <b class='headline'>Top Stories |
+                <img class='star' src="../../../assets/images/star-solid.svg"/>
+                <span class='score'>{{story?.score}}</span>
+            </b>
+            <pre class='datetime'>{{toDateString(story?.time)}}</pre>
+        </div>
+        <h3>{{story?.title}}</h3>
+        <pre class='author'>By: {{story?.by}} | Karma score: {{ story?.karma }}</pre>
+        <ng-container *ngIf="story?.url">
+            <span>Read full story here: </span>
+            <a href={{story?.url}} class='story-url'>{{story?.url}}</a>
+        </ng-container>
+    </div>
+</article>
